@@ -38,7 +38,3 @@ if __name__ == '__main__':
     matrix = []
     target = 0
     print(findNumberIn2DArray(matrix, target))
-
-    matrix = [[1, 2, 3]]
-    target =
-    print(findNumberIn2DArray(matrix, target))
