@@ -26,9 +26,6 @@ def isValid(s):
         return False
 
 
-
-
-
 if __name__ == '__main__':
     test1 = "()"
     print(isValid(test1))  # t
