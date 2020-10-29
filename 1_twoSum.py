@@ -13,7 +13,7 @@ def twoSum(nums, target):
             return [note.get(target-nums[nums_idx]), nums_idx]
         else:
             note.setdefault(nums[nums_idx], nums_idx)
-    return
+    return []
 
 
 if __name__ == '__main__':
