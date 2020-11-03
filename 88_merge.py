@@ -20,7 +20,7 @@ def merge(nums1, m, nums2, n):
         current -= 1
     if idx2 >= 0:
         nums1[:current+1] = nums2[:idx2+1]
-        
+
     return nums1
 
 
