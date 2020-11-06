@@ -9,10 +9,10 @@ Created on 2020-11-06 23:53
 
 def findDisappearedNumbers(nums):
     support = set(nums)
-    result = [idx + 1 for idx in range(len(nums))]
-    for num in support:
-        if num in result:
-            result.remove(num)
+    result = []
+    for idx in range(1, len(nums)+1):
+        if idx not in support:
+            result.append(idx)
     return result
 
 
