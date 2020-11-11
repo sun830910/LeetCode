@@ -6,19 +6,40 @@ Created on 2020-11-11 16:42
 @Email   : jw_jiang@pku.edu.com
 """
 
-
-# 双指针，92%
+# 二分，98%
 def search(nums, target):
-    left_idx = 0
-    right_idx = len(nums) - 1
     if target not in set(nums):
         return 0
-    while (nums[left_idx] != target or nums[right_idx] != target) and left_idx <= right_idx:
-        if nums[left_idx] != target and left_idx <= right_idx:
-            left_idx += 1
-        if nums[right_idx] != target and left_idx <= right_idx:
-            right_idx -= 1
-    return right_idx - left_idx + 1
+    left = 0
+    right = len(nums) - 1
+    while right >= left:
+        mid = (right + left) // 2
+        if nums[mid] == target:
+            break
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid
+    while nums[left] != target or nums[right] != target:
+        if nums[left] != target:
+            left += 1
+        if nums[right] != target:
+            right -= 1
+    return right - left + 1
+
+
+# 双指针，92%
+# def search(nums, target):
+#     left_idx = 0
+#     right_idx = len(nums) - 1
+#     if target not in set(nums):
+#         return 0
+#     while (nums[left_idx] != target or nums[right_idx] != target) and left_idx <= right_idx:
+#         if nums[left_idx] != target and left_idx <= right_idx:
+#             left_idx += 1
+#         if nums[right_idx] != target and left_idx <= right_idx:
+#             right_idx -= 1
+#     return right_idx - left_idx + 1
 
 
 """
