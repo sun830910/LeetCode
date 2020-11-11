@@ -32,7 +32,6 @@ def masterMind(solution, guess):
     return [correct_cnt, error_cnt]
 
 
-
 if __name__ == '__main__':
     solution = "RGBY"
     guess = "GGRR"
