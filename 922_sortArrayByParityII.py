@@ -10,7 +10,8 @@ Created on 2020-11-12 16:46
 def sortArrayByParityII(A):
     even_idx = 0
     odd_idx = 1
-    while even_idx < len(A) and odd_idx < len(A):
+    length = len(A)  # 先将长度拉出来计算可以加速
+    while even_idx < length and odd_idx < length:
         if A[even_idx] % 2 != 0 and A[odd_idx] % 2 != 1:
             A[odd_idx], A[even_idx] = A[even_idx], A[odd_idx]
         if A[even_idx] % 2 == 0:
