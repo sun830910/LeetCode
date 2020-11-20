@@ -7,8 +7,9 @@ Created on 11/20/20 3:48 PM
 """
 
 import random
-jin
 
+
+# 90%
 def modifyString(s):
     vocabs = "abcdefghijklmnopqrstuvwxyz"
     s_list = list("_" + s + "_")
