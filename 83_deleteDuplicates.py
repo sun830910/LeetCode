@@ -7,7 +7,7 @@ Created on 11/25/20 4:34 PM
 """
 
 
-class Node(object):
+class LNode(object):
     # 结点初始化函数, p 即模拟所存放的下一个结点的地址
     # 为了方便传参, 设置 p 的默认值为 0
     def __init__(self, val, p=0):
@@ -15,18 +15,18 @@ class Node(object):
         self.next = p
 
 
-class LinkedList(object):
+class LinkList(object):
     def __init__(self):
         self.head = None
 
     # 链表初始化函数, 方法类似于尾插
     def initList(self, data):
-        # 创建头节点
-        self.head = Node(data[0])
+        # 创建头结点
+        self.head = LNode(data[0])
         p = self.head
-        # 遍历数据创建结点建立链表
-        for idx in data[1:]:
-            node = Node(idx)
+        # 逐个为 data 内的数据创建结点, 建立链表
+        for i in data[1:]:
+            node = LNode(i)
             p.next = node
             p = p.next
 
@@ -41,7 +41,7 @@ class LinkedList(object):
     # 取链表长度
     def getLength(self):
         if self.isEmpty():
-            return 0
+            exit(0)
 
         p = self.head
         len = 0
@@ -53,18 +53,20 @@ class LinkedList(object):
     # 遍历链表
     def traveList(self):
         if self.isEmpty():
-            return 0
+            exit(0)
+        print('\rlink list traving result: ', )
         p = self.head
         while p:
-            print(p.data)
+            print(p.val, )
             p = p.next
 
     # 链表插入数据函数
     def insertElem(self, key, index):
         if self.isEmpty():
-            return 0
+            exit(0)
         if index < 0 or index > self.getLength() - 1:
-            return 0
+            print("\rKey Error! Program Exit.")
+            exit(0)
 
         p = self.head
         i = 0
@@ -74,16 +76,17 @@ class LinkedList(object):
             i += 1
 
         # 遍历找到索引值为 index 的结点后, 在其后面插入结点
-        node = Node(key)
+        node = LNode(key)
         pre.next = node
         node.next = p
 
     # 链表删除数据函数
     def deleteElem(self, index):
         if self.isEmpty():
-            return 0
+            exit(0)
         if index < 0 or index > self.getLength() - 1:
-            return 0
+            print("\rValue Error! Program Exit.")
+            exit(0)
 
         i = 0
         p = self.head
@@ -101,20 +104,26 @@ class LinkedList(object):
         pre.next = None
 
     def deleteDuplicates(self):
-        if self.isEmpty():
-            return 0
+        if not self.head:
+            return self.head
         last, current = self.head, self.head.next
         while True:
             while current and current.val == last.val:
                 current = current.next
             last.next = current
             last = current
+            if not current:
+                break
+            current = current.next
 
 
 if __name__ == '__main__':
-    head = [1, 1, 2]
-    l = LinkedList()
-    l.initList(head)
+    # 初始化链表与数据
+    data = [1, 1, 2]
+    l = LinkList()
+    l.initList(data)
+    l.traveList()
 
+    print("=" * 30)
     l.deleteDuplicates()
     l.traveList()
