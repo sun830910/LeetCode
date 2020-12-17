@@ -24,7 +24,7 @@ def checkRecord(s):
         if a_cnt > 1:
             return False
         if s[idx] == 'L':
-            if s[idx-1] == s[idx+1] == s[idx]:
+            if s[idx - 1] == s[idx + 1] == s[idx]:
                 return False
         idx += 1
     return True
