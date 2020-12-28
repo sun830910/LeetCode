@@ -27,8 +27,35 @@ def rob(nums):
     return max(result[-2:])
 
 
+def rob2(nums):
+    if len(nums) == 0:
+        return 0
+    length = len(nums)
+    result = [0] * (length + 1)
+    result[0] = 0
+    result[1] = nums[0]
+    for idx in range(2, length + 1):
+        result[idx] = max(result[idx - 1], nums[idx - 1] + result[idx - 2])
+    return result[length]
+
+
+def rob2_practice(nums):
+    if not nums:
+        return 0
+    length = len(nums)
+    result = [0] * (length + 1)
+    result[0] = 0
+    result[1] = nums[0]
+    for idx in range(2, length + 1):
+        result[idx] = max(result[idx - 2] + nums[idx - 1], result[idx - 1])
+    return result
+
+
 if __name__ == '__main__':
     nums = [1, 2, 3, 1]
-    print(rob(nums))
+    print(rob2_practice(nums))
     nums = [2, 7, 9, 3, 1]
-    print(rob(nums))
+    print(rob2_practice(nums))
+
+    nums = [2, 1, 1, 2]
+    print(rob2_practice(nums))
