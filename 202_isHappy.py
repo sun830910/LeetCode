@@ -12,12 +12,11 @@ def isHappy(n):
     while n != 1 and n not in record:
         record.add(n)
         next_num = 0
-        while n != 0 :
+        while n != 0:
             next_num += (n % 10) ** 2
             n = n // 10
         n = next_num
     return n == 1
-
 
 
 if __name__ == '__main__':
